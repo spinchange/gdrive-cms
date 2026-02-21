@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz10_N-B6n-JgIpc3JEQfOt4dztxylp_UPFhT9TVgK8PkYW8aMC3Th_rr6LY6a0wHegzQ/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyllSmcYeD-f-GmbX05PciYEb2czPNos2tAahEoOe4qhk1m3Mcn1iFqyzGcpaDXB35K/exec";
 
 const navEl = document.getElementById("nav");
 const contentEl = document.getElementById("content");
