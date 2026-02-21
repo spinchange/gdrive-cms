@@ -3,6 +3,8 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZulAChIdhiYLC
 const statusEl = document.getElementById("admin-status");
 const listEl = document.getElementById("admin-list");
 const sheetEl = document.getElementById("sheet-link");
+const headerEl = document.getElementById("site-header");
+const brandEl = document.getElementById("brand");
 
 function jsonp(url, callback) {
   const callbackName = "jsonp_cb_" + Math.random().toString(36).slice(2);
@@ -26,6 +28,21 @@ function renderList(data) {
   if (!data || !data.ok) {
     statusEl.textContent = "Error loading page list.";
     return;
+  }
+  const cfg = window.CMS_CONFIG || {};
+  const adminTitle = cfg.adminTitle || "GDrive CMS Admin";
+  document.title = adminTitle;
+  if (brandEl) {
+    if (cfg.logoUrl) {
+      const alt = cfg.logoAlt || adminTitle;
+      const href = cfg.logoLink || "index.html";
+      brandEl.innerHTML = `<a href="${href}"><img src="${cfg.logoUrl}" alt="${alt}"></a>`;
+    } else {
+      brandEl.textContent = adminTitle;
+    }
+  }
+  if (headerEl && cfg.showHeader === false) {
+    headerEl.style.display = "none";
   }
   statusEl.textContent = "";
   const pages = data.pages || [];

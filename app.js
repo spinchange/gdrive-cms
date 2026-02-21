@@ -4,6 +4,8 @@ const navEl = document.getElementById("nav");
 const contentEl = document.getElementById("content");
 const editEl = document.getElementById("edit-link");
 const updatedEl = document.getElementById("last-updated");
+const headerEl = document.getElementById("site-header");
+const brandEl = document.getElementById("brand");
 
 function getParam(name) {
   const params = new URLSearchParams(window.location.search);
@@ -37,7 +39,21 @@ function render(data) {
     contentEl.innerHTML = '<div class="loading">Error loading content.</div>';
     return;
   }
-  document.title = data.title || "GDrive CMS";
+  const cfg = window.CMS_CONFIG || {};
+  const siteTitle = cfg.siteTitle || "GDrive CMS";
+  document.title = data.title || siteTitle;
+  if (brandEl) {
+    if (cfg.logoUrl) {
+      const alt = cfg.logoAlt || siteTitle;
+      const href = cfg.logoLink || "index.html";
+      brandEl.innerHTML = `<a href="${href}"><img src="${cfg.logoUrl}" alt="${alt}"></a>`;
+    } else {
+      brandEl.textContent = siteTitle;
+    }
+  }
+  if (headerEl && cfg.showHeader === false) {
+    headerEl.style.display = "none";
+  }
   navEl.innerHTML = data.navHtml || '<a href="?page=home">Home</a>';
   contentEl.innerHTML = data.contentHtml || "";
 
