@@ -45,7 +45,3 @@ window.CMS_CONFIG = {
 ## Usage
 - View site: `/?page=home`
 - Admin list: `/admin.html`
-
-## Notes
-- GitHub Pages is public; anything in this repo is public.
-- If you want gating/auth, use a host like Netlify/Vercel or an auth proxy.
