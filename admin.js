@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQfDnQVS6XbpGWJ-AV8B2wLbpKaGWGUUMVWV3jzG9T_0svSc8zInwaXeSYSLSpzpoxTg/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz10_N-B6n-JgIpc3JEQfOt4dztxylp_UPFhT9TVgK8PkYW8aMC3Th_rr6LY6a0wHegzQ/exec";
 
 const statusEl = document.getElementById("admin-status");
 const listEl = document.getElementById("admin-list");
